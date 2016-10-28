@@ -1,0 +1,17 @@
+{
+    "name": "lingxi/context",
+    "description": "Add a application deploy timestamp prefix to cookie name for laravel.",
+    "keywork": ["laravel", "cookie", "timestamp"],
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Lingxi\\Context\\": "src/"
+        }
+    },
+    "require": {
+        "illuminate/support": "5.1.* || 5.2.* || 5.3.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.0"
+    }
+}
