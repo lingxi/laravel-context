@@ -3,7 +3,6 @@
 namespace Lingxi\Context;
 
 use Illuminate\Support\Arr;
-use App\Services\LingxiApi\Api;
 use Illuminate\Support\Traits\Macroable;
 
 class Context
