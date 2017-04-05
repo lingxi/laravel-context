@@ -36,7 +36,7 @@ class Context
 
     public function has($key)
     {
-        return in_array($key, array_keys($this->data));
+        return array_key_exists($key, $this->data);
     }
 
     public function get($key, $default = null)
