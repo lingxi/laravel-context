@@ -39,6 +39,11 @@ class Context
         return array_key_exists($key, $this->data);
     }
 
+    public function input($key, $default = null)
+    {
+        return $this->get($key, $default);
+    }
+
     public function get($key, $default = null)
     {
         return Arr::get($this->data, $key, $default);

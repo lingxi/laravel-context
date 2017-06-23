@@ -6,18 +6,19 @@ use Illuminate\Support\ServiceProvider;
 
 class ContextServiceProvider extends ServiceProvider
 {
-    public function boot()
-    {
-        //
-    }
+    protected $defer = true;
 
-    /**
-     * @return void
-     */
     public function register()
     {
         $this->app->singleton('context', function () {
             return Context::create();
         });
+    }
+
+    public function provides()
+    {
+        return [
+            'context',
+        ];
     }
 }
