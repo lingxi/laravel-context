@@ -1,6 +1,6 @@
 <?php
 
-namespace Lingxi\Context;
+namespace Ailuoy\Context;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Traits\Macroable;
@@ -11,7 +11,7 @@ class Context
 
     public static $instance;
 
-    protected $data = [];
+    protected static $data = [];
 
     protected function __construct()
     {
@@ -27,31 +27,31 @@ class Context
         return static::$instance;
     }
 
-    public function set($key, $value)
+    public static function set($key, $value)
     {
-        Arr::set($this->data, $key, $value);
+        Arr::set(self::$data, $key, $value);
 
-        return $this;
+        return self::class;
     }
 
-    public function has($key)
+    public static function has($key)
     {
-        return array_key_exists($key, $this->data);
+        return array_key_exists($key, self::$data);
     }
 
-    public function input($key, $default = null)
+    public static function input($key, $default = null)
     {
-        return $this->get($key, $default);
+        return self::get($key, $default);
     }
 
-    public function get($key, $default = null)
+    public static function get($key, $default = null)
     {
-        return Arr::get($this->data, $key, $default);
+        return Arr::get(self::$data, $key, $default);
     }
 
-    public function all()
+    public static function all()
     {
-        return $this->data;
+        return self::$data;
     }
 
     public function __get($key)

@@ -1,6 +1,6 @@
 <?php
 
-namespace Lingxi\Context;
+namespace Ailuoy\Context;
 
 use Illuminate\Support\Facades\Facade;
 

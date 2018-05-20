@@ -1,8 +1,8 @@
 <?php
 
-use Lingxi\Context\Context;
-
-class ContextTest extends PHPUnit_Framework_TestCase
+use Ailuoy\Context\Context;
+use Tests\TestCase;
+class ContextTest extends TestCase
 {
     public function setUp()
     {
@@ -15,17 +15,17 @@ class ContextTest extends PHPUnit_Framework_TestCase
             return 'foo';
         });
 
-        $this->context->set('name', 'context');
-        $this->assertEquals($this->context->get('name'), 'context');
+        $this->context::set('name', 'context');
+        $this->assertEquals($this->context::get('name'), 'context');
 
-        $this->context->set('age', 20);
-        $this->assertTrue($this->context->has('age'));
+        $this->context::set('age', 20);
+        $this->assertTrue($this->context::has('age'));
 
-        $this->assertEquals($this->context->all(), [
+        $this->assertEquals($this->context::all(), [
             'name' => 'context',
             'age' => 20,
         ]);
 
-        $this->assertEquals('foo', $this->context->get_foo());
+        $this->assertEquals('foo', $this->context::get_foo());
     }
 }
