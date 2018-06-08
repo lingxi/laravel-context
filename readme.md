@@ -5,11 +5,11 @@
 ### Install
 
 ```bash
-composer require lingxi/context
+composer require ailuoy/context
 
-Lingxi\Context\ContextServiceProvider::class,
+Ailuoy\Context\ContextServiceProvider::class,
 
-'Context' => Lingxi\Context\ContextFacade::class,
+'Context' => Ailuoy\Context\ContextFacade::class,
 ```
 
 ### Usage
@@ -20,4 +20,6 @@ Lingxi\Context\ContextServiceProvider::class,
 Context::set('user', User::find(request('user_id')));
 
 Context::get('user');
+
+Context::all();
 ```

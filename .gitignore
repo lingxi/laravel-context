@@ -1,2 +1,6 @@
 /vendor
 test.php
+.idea
+.phpstorm.meta.php
+*/.DS_Store
+.DS_Store

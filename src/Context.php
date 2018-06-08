@@ -1,23 +1,39 @@
 <?php
 
-namespace Lingxi\Context;
+namespace Kenuocn\Context;
 
 use Illuminate\Support\Arr;
 use Illuminate\Support\Traits\Macroable;
 
+/**
+ * Class Context
+ * @package Kenuocn\Context
+ */
 class Context
 {
     use Macroable;
 
+    /**
+     * @var
+     */
     public static $instance;
 
-    protected $data = [];
+    /**
+     * @var array
+     */
+    protected static $data = [];
 
+    /**
+     * Context constructor.
+     */
     protected function __construct()
     {
         //
     }
 
+    /**
+     * @return mixed
+     */
     public static function create()
     {
         if (! isset(static::$instance)) {
@@ -27,38 +43,69 @@ class Context
         return static::$instance;
     }
 
-    public function set($key, $value)
+    /**
+     * @param $key
+     * @param $value
+     * @return string
+     */
+    public static function set($key, $value)
     {
-        Arr::set($this->data, $key, $value);
+        Arr::set(self::$data, $key, $value);
 
-        return $this;
+        return self::class;
     }
 
-    public function has($key)
+    /**
+     * @param $key
+     * @return bool
+     */
+    public static function has($key)
     {
-        return array_key_exists($key, $this->data);
+        return array_key_exists($key, self::$data);
     }
 
-    public function input($key, $default = null)
+    /**
+     * @param      $key
+     * @param null $default
+     * @return mixed
+     */
+    public static function input($key, $default = null)
     {
-        return $this->get($key, $default);
+        return self::get($key, $default);
     }
 
-    public function get($key, $default = null)
+    /**
+     * @param      $key
+     * @param null $default
+     * @return mixed
+     */
+    public static function get($key, $default = null)
     {
-        return Arr::get($this->data, $key, $default);
+        return Arr::get(self::$data, $key, $default);
     }
 
-    public function all()
+    /**
+     * @return array
+     */
+    public static function all()
     {
-        return $this->data;
+        return self::$data;
     }
 
+    /**
+     * @param $key
+     * @return mixed
+     */
     public function __get($key)
     {
         return $this->get($key);
     }
 
+    /**
+     * @param $key
+     * @param $value
+     * @return string
+     */
     public function __set($key, $value)
     {
         return $this->set($key, $value);
