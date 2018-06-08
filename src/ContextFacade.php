@@ -1,9 +1,13 @@
 <?php
 
-namespace Ailuoy\Context;
+namespace Kenuocn\Context;
 
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * Class ContextFacade
+ * @package Kenuocn\Context
+ */
 class ContextFacade extends Facade
 {
     /**

@@ -1,11 +1,11 @@
 {
-    "name": "ailuoy/laravel-context",
+    "name": "kenuocn/laravel-context",
     "description": "Add a application deploy timestamp prefix to cookie name for laravel.",
     "keywork": ["laravel", "cookie", "timestamp"],
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Ailuoy\\Context\\": "src/"
+            "Kenuocn\\Context\\": "src/"
         }
     },
     "require": {
